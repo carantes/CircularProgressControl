@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  CircularProgressControl
+
+  Created by Carlos Eduardo Arantes Ferreira on 22/11/14.
+  Copyright (c) 2014 Mobistart. All rights reserved.
+*/
+
+"circle-progress-view.status-not-started" = "não iniciado";
+"circle-progress-view.status-in-progress" = "em andamento";
+"progress-view-controller.action-button.title-stop" = "Parar";
+"progress-view-controller.action-button.title-start" = "Iniciar";
