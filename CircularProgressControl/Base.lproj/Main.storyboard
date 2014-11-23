@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Progress View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ProgressViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,70 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sfh-rd-cVf" customClass="CircleProgressView">
+                                <rect key="frame" x="150" y="20" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="ZuD-A9-uOe"/>
+                                    <constraint firstAttribute="height" constant="300" id="kpz-R5-KUH"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jc2-0z-CRW">
+                                <rect key="frame" x="230" y="328" width="140" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="DU4-bD-0hV"/>
+                                    <constraint firstAttribute="width" constant="140" id="oJn-6K-HJJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionButtonClick:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="W11-EL-mhu"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Sfh-rd-cVf" secondAttribute="centerX" constant="150" id="1Oc-br-JGV"/>
+                            <constraint firstAttribute="centerX" secondItem="jc2-0z-CRW" secondAttribute="centerX" id="6rm-qX-C20"/>
+                            <constraint firstAttribute="centerX" secondItem="jc2-0z-CRW" secondAttribute="centerX" id="K2i-Fa-0Al"/>
+                            <constraint firstItem="jc2-0z-CRW" firstAttribute="top" secondItem="Sfh-rd-cVf" secondAttribute="bottom" constant="8" id="L6f-ci-VQC"/>
+                            <constraint firstItem="Sfh-rd-cVf" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="L8D-J2-T0T"/>
+                            <constraint firstItem="jc2-0z-CRW" firstAttribute="top" secondItem="Sfh-rd-cVf" secondAttribute="bottom" constant="4" id="Qd2-pI-sIb"/>
+                            <constraint firstItem="Sfh-rd-cVf" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" id="Ypd-Hc-jvN"/>
+                            <constraint firstItem="Sfh-rd-cVf" firstAttribute="leading" secondItem="jc2-0z-CRW" secondAttribute="trailing" constant="-33" id="ek5-WB-mei"/>
+                            <constraint firstItem="jc2-0z-CRW" firstAttribute="top" secondItem="Sfh-rd-cVf" secondAttribute="bottom" constant="8" id="fDD-hY-65X"/>
+                            <constraint firstAttribute="centerX" secondItem="Sfh-rd-cVf" secondAttribute="centerX" id="qIn-jX-bKp">
+                                <variation key="widthClass=compact" constant="0.0"/>
+                            </constraint>
+                            <constraint firstItem="Sfh-rd-cVf" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="topMargin" constant="20" id="tEO-R8-m7f">
+                                <variation key="widthClass=compact" constant="20"/>
+                            </constraint>
+                            <constraint firstItem="Sfh-rd-cVf" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" id="zek-lB-2Ea"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="1Oc-br-JGV"/>
+                                <exclude reference="L8D-J2-T0T"/>
+                                <exclude reference="Ypd-Hc-jvN"/>
+                                <exclude reference="ek5-WB-mei"/>
+                                <exclude reference="zek-lB-2Ea"/>
+                                <exclude reference="6rm-qX-C20"/>
+                                <exclude reference="L6f-ci-VQC"/>
+                                <exclude reference="Qd2-pI-sIb"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="actionButton" destination="jc2-0z-CRW" id="qmL-Nq-ayN"/>
+                        <outlet property="circleProgressView" destination="Sfh-rd-cVf" id="vWP-pJ-I3P"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-50" y="136"/>
         </scene>
     </scenes>
 </document>
