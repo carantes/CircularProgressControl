@@ -22,8 +22,11 @@ not already using ARC.
 
 ## Usage
 
-The compose bar visible in the demo above was created as follows:
-
+Subclass CircularProgressView or manually create a new instance using alloc/initWithFrame:
+```objectivec
+CircleProgressView *progressView = [[CircleProgressView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+```
+Configure the parameters before set the elapsed time:
 ```objectivec
 [_circleProgressView setTimeLimit:3600*8];
 [_circleProgressView setStatus:NSLocalizedString(@"circle-progress-view.status-not-started", nil)];
@@ -40,3 +43,5 @@ The compose bar visible in the demo above was created as follows:
 ### Author
 
 Carlos Arantes ([@carantes](http://twitter.com/carantes))
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/carantes/circularprogresscontrol/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
