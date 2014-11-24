@@ -32,13 +32,13 @@
 
 - (void)setupLayer {
     
-    self.path = [UIBezierPath bezierPathWithOvalInRect:self.bounds].CGPath;
+    self.path = [self drawPathWithArcCenter];
     self.fillColor = [UIColor clearColor].CGColor;
     self.strokeColor = [UIColor colorWithRed:0.86f green:0.86f blue:0.86f alpha:0.4f].CGColor;
     self.lineWidth = 20;
     
     self.progressLayer = [CAShapeLayer layer];
-    self.progressLayer.path = [UIBezierPath bezierPathWithOvalInRect:self.bounds].CGPath;
+    self.progressLayer.path = [self drawPathWithArcCenter];
     self.progressLayer.fillColor = [UIColor clearColor].CGColor;
     self.progressLayer.strokeColor = [UIColor whiteColor].CGColor;
     self.progressLayer.lineWidth = 20;
@@ -47,6 +47,17 @@
     [self addSublayer:self.progressLayer];
     
 }
+
+- (CGPathRef)drawPathWithArcCenter {
+    
+    CGFloat radius = self.bounds.size.width/2; // Assuming that width == height
+    return [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius, radius)
+                                          radius:radius
+                                      startAngle:(-M_PI/2)
+                                        endAngle:(3*M_PI/2)
+                                       clockwise:YES].CGPath;
+}
+
 
 - (void)setElapsedTime:(NSTimeInterval)elapsedTime {
     _initialProgress = [self calculatePercent:_elapsedTime toTime:_timeLimit];
