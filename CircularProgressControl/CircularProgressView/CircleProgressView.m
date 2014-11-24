@@ -114,7 +114,7 @@
                                 range:NSMakeRange(0, progressString.length)];
         
         [attributedString addAttributes:@{
-                                        NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-thin" size:14]}
+                                        NSFontAttributeName: [UIFont fontWithName:@"HelveticaNeue-thin" size:18]}
                                 range:NSMakeRange(progressString.length+1, _status.length)];
         
     }
