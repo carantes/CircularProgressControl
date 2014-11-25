@@ -73,9 +73,9 @@
     self.backgroundColor = [UIColor clearColor];
     
     //add clock face layer
-    self.progressLayer = [[CircleShapeLayer alloc] init];
+    self.progressLayer = [[CircleShapeLayer alloc] initWithFrame:self.bounds];
     [self.layer addSublayer:self.progressLayer];
-
+    
 }
 
 - (void)setTintColor:(UIColor *)tintColor {

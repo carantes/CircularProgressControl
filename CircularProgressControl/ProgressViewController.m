@@ -29,7 +29,7 @@
     self.session.state = kSessionStateStop;
     
     self.circleProgressView.status = NSLocalizedString(@"circle-progress-view.status-not-started", nil);
-    self.circleProgressView.timeLimit = 3600*8;
+    self.circleProgressView.timeLimit = 60*8;
     self.circleProgressView.elapsedTime = 0;
     
     [self.actionButton setTintColor:[UIColor whiteColor]];

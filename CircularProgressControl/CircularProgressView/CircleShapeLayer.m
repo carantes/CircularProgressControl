@@ -22,13 +22,29 @@
 - (instancetype)init {
     if ((self = [super init]))
     {
-        //TODO: Custom Frame based on Parent View Size
-        self.frame = CGRectMake(25, 25, 250, 250);
+        //Default Iphone Width
+        self.bounds = CGRectMake(0, 0, 250, 250);
+        self.position = CGPointMake(125, 125);
+        
         [self setupLayer];
     }
     
     return self;
 }
+
+- (instancetype)initWithFrame:(CGRect)frame {
+
+    if ((self = [super init]))
+    {
+        self.bounds = CGRectMake(0, 0, frame.size.width, frame.size.height);
+        self.position = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
+        
+        [self setupLayer];
+    }
+    
+    return self;
+}
+
 
 - (void)setupLayer {
     
