@@ -12,6 +12,7 @@
 
 @property (assign, nonatomic) double initialProgress;
 @property (nonatomic, strong) CAShapeLayer *progressLayer;
+@property (nonatomic, assign) CGRect frame;
 
 @end
 
@@ -22,29 +23,18 @@
 - (instancetype)init {
     if ((self = [super init]))
     {
-        //Default Iphone Width
-        self.bounds = CGRectMake(0, 0, 250, 250);
-        self.position = CGPointMake(125, 125);
-        
         [self setupLayer];
     }
     
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame {
+- (void)layoutSublayers {
 
-    if ((self = [super init]))
-    {
-        self.bounds = CGRectMake(0, 0, frame.size.width, frame.size.height);
-        self.position = CGPointMake(CGRectGetMidX(frame), CGRectGetMidY(frame));
-        
-        [self setupLayer];
-    }
-    
-    return self;
+    self.path = [self drawPathWithArcCenter];
+    self.progressLayer.path = [self drawPathWithArcCenter];
+    [super layoutSublayers];
 }
-
 
 - (void)setupLayer {
     
@@ -66,9 +56,10 @@
 
 - (CGPathRef)drawPathWithArcCenter {
     
-    CGFloat radius = self.bounds.size.width/2; // Assuming that width == height
-    return [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius, radius)
-                                          radius:radius
+    CGFloat position_y = self.frame.size.height/2;
+    CGFloat position_x = self.frame.size.width/2; // Assuming that width == height
+    return [UIBezierPath bezierPathWithArcCenter:CGPointMake(position_x, position_y)
+                                          radius:position_y
                                       startAngle:(-M_PI/2)
                                         endAngle:(3*M_PI/2)
                                        clockwise:YES].CGPath;

@@ -32,6 +32,19 @@
     [self setupViews];
 }
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    self.progressLayer.frame = self.bounds;
+    
+    [self.progressLabel sizeToFit];
+    self.progressLabel.center = CGPointMake(self.center.x - self.frame.origin.x, self.center.y- self.frame.origin.y);
+}
+
+- (void)updateConstraints {
+    [super updateConstraints];
+}
+
 - (UILabel *)progressLabel
 {
     if (!_progressLabel) {
@@ -69,11 +82,13 @@
 
 - (void)setupViews {
     
-    self.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.backgroundColor = [UIColor clearColor];
+    self.clipsToBounds = false;
     
-    //add clock face layer
-    self.progressLayer = [[CircleShapeLayer alloc] initWithFrame:self.bounds];
+    //add Progress layer
+    self.progressLayer = [[CircleShapeLayer alloc] init];
+    self.progressLayer.frame = self.bounds;
+    self.progressLayer.backgroundColor = [UIColor clearColor].CGColor;
     [self.layer addSublayer:self.progressLayer];
     
 }

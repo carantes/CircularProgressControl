@@ -17,6 +17,4 @@
 @property (assign, nonatomic, readonly) double percent;
 @property (nonatomic) UIColor *progressColor;
 
-- (instancetype)initWithFrame:(CGRect)frame;
-
 @end
