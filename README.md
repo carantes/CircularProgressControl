@@ -10,7 +10,8 @@ It basically consists of two CAShapeLayers to draw a static and a animated circl
 ## Features
 
 - automatically update the circle progress when the elapsed time is set
-- autoformat the timer label 
+- autolayout compatible
+- autoformat the timer label
 - tint color of progress layer and label
 - state description can be changed
 
