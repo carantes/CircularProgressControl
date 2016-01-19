@@ -106,9 +106,12 @@
 
 - (void)startAnimation {
     
+    CALayer *presentation = (CALayer*)[self.progressLayer presentationLayer];
+    NSValue *prevVal = [presentation valueForKey:@"strokeEnd"];
+    
     CABasicAnimation *pathAnimation = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
     pathAnimation.duration = 1.0;
-    pathAnimation.fromValue = @(self.initialProgress);
+    pathAnimation.fromValue = prevVal;
     pathAnimation.toValue = @(self.percent);
     pathAnimation.removedOnCompletion = YES;
     
